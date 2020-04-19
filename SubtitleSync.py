@@ -15,7 +15,7 @@ class SubtitleSyncer:
 		self.subtitle_name = subtitle_name
 		self.video_name = video_name
 		self.decoder = AudioDecoder(video_name)
-		self.transcriber = Transcriber('69e9fe5fdf7a4600b18781a15e7b9194')
+		self.transcriber = Transcriber('API_KEY')
 
 	def __get_cosine(self, str1, str2):
 		def text_to_vector(text):
