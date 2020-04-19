@@ -72,8 +72,3 @@ class Transcriber:
 
 		print('Retrieving SRT')
 		return self.__get_srt(transcription_id)
-
-# t = Transcriber('e3033b07b0d64a92a73ba97ac5a19a24')
-# srt = t.transcribe('sample.mp3')
-
-# print(srt)
