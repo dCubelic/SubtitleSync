@@ -75,7 +75,7 @@ class SubtitleSyncer:
 		max_similarity = 0
 		for srt1 in transcribed_srt:
 			for srt2 in srt_part:
-				cosine = self.__get_cosine(srt1.text, srt2.text)
+				cosine = self.__get_cosine(srt1.text.lower(), srt2.text.lower())
 				if cosine > max_similarity:
 					max_similarity = cosine
 					max_srt1 = srt1
