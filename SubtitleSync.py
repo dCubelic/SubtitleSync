@@ -3,7 +3,7 @@ import os
 import pysrt
 import re
 import argparse
-from AudioDecoder import AudioDecoder
+from AudioExtractor import AudioExtractor
 from collections import Counter
 from Transcriber import Transcriber
 
@@ -14,8 +14,8 @@ class SubtitleSyncer:
 	def __init__(self, subtitle_name, video_name):
 		self.subtitle_name = subtitle_name
 		self.video_name = video_name
-		self.decoder = AudioDecoder(video_name)
 		self.transcriber = Transcriber('API_KEY')
+		self.audio_extractor = AudioExtractor(video_name)
 
 	def __get_cosine(self, str1, str2):
 		def text_to_vector(text):
@@ -56,7 +56,7 @@ class SubtitleSyncer:
 		audio_file = self.video_name[:-3] + 'audio.temp.mp3'
 
 		# Get audio
-		self.decoder.decode(audio_file, srt_start - self.START_OFFSET, srt_duration + self.START_OFFSET*2)
+		self.audio_extractor.extract(audio_file, srt_start - self.START_OFFSET, srt_duration + self.START_OFFSET*2)
 
 		# Get audio transcription
 		transcribed_file = self.video_name[:-3] + 'transcribed.srt'

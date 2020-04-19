@@ -1,12 +1,12 @@
 import subprocess
 
-class AudioDecoder:
+class AudioExtractor:
 	def __init__(self, filename):
 		self.filename = filename
 
 	# start_time in seconds
 	# duration in seconds
-	def decode(self, output, start_time, duration):
+	def extract(self, output, start_time, duration):
 		start_time = str(start_time)
 		duration = str(duration)
 
